@@ -25,7 +25,7 @@
                     }
                 else
                     {
-                        $sql = "select * from product where proname='$nameproduct'";
+                        $sql = "select * from product where nameproduct='$nameproduct'";
                         $query = pg_query($conn, $sql);
                         if(pg_num_rows($query)>0)
                         {
@@ -41,9 +41,9 @@
             }
 			 ?>
         <form action="add.php" method="POST">
-            <input type="text" width="300" height="100" name="proname" placeholder="Name"> <br>
+            <input type="text" width="300" height="100" name="nameproduct" placeholder="Name"> <br>
             <input type="text" width="300" height="100" name="price" placeholder="Price"> <br>
-            <input type="text" width="300" height="100" name="descrip" placeholder="Description"> <br>
+            <input type="text" width="300" height="100" name="description" placeholder="Description"> <br>
             <button type="submit" value="Add" name="submit">Add</button>
         </form>
         
