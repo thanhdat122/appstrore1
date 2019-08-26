@@ -10,12 +10,6 @@
 </head>
 
 <body>
-<?php
-    session_start();
-    if(!isset($_SESSION['dangnhap'])){
-     header('login.php');
-    }
-?>
     <div class="content">
         <h1>Managing Product</h1>
         <table>
