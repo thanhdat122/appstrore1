@@ -46,7 +46,7 @@
                             ?> 
                                 <script>
                                     alert("Added successful!");
-                                    window.location.href = "/managing.php";
+                                    window.location.href = "/index.php";
                                 </script>
                             <?php
                         }
@@ -60,7 +60,7 @@
             <button type="submit" value="Add" name="submit">Add</button>
         </form>
         
-        <button><a href="/managing.php">Back</a></button>
+        <button><a href="/index.php">Back</a></button>
     </div>
 </body>
 
