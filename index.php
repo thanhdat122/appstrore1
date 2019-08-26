@@ -8,14 +8,19 @@
     <link rel="stylesheet" href="/style.css">
     <title>Document</title>
 </head>
-
+<?php
+ session_start();
+ if(!isset($_SESSION['dangnhap'])){
+     header('login.php');
+ }
+?>
 <body>
     <div class="content">
         <h1>Managing Product</h1>
         <table>
             <tr>
                 <th class="tit">ID</th>
-                <th class="tit">NameProduct</th>
+                <th class="tit">Name</th>
                 <th class="tit">Price ($)</th>
                 <th class="tit">Description</th>
                 <th class="tit">Editting</th>
