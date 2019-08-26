@@ -10,7 +10,7 @@
 </head>
 
 <body>
-    <div class="content">
+    <div>
         <h1>Adding Product Form</h1>
         <?php 
         require("connect.php");   
@@ -21,7 +21,11 @@
                 $description = $_POST["description"];
                 if ($nameproduct == ""||$price == ""|| $description == "") 
                     {
-                        echo "Product information should not be blank!!";
+                        ?>
+                        <script>
+                            alert("Product information should not be blank!!");
+                        </script>
+                        <?php
                     }
                 else
                     {
@@ -29,25 +33,34 @@
                         $query = pg_query($conn, $sql);
                         if(pg_num_rows($query)>0)
                         {
-                            echo "Product is already available!!";
+                        ?> 
+                            <script>
+                                alert("The product is available!!");
+                            </script>
+                        <?php
                         }
                         else
                         {
                             $sql = "INSERT INTO product(nameproduct, price, description) VALUES ('$nameproduct','$price','$description')";
                             pg_query($conn,$sql);
-                            echo  "Sign Up successful!!";
+                            ?> 
+                                <script>
+                                    alert("Added successful!");
+                                    window.location.href = "/managing.php";
+                                </script>
+                            <?php
                         }
                     }
             }
-			 ?>
+            ?>
         <form action="add.php" method="POST">
-            <input type="text" width="300" height="100" name="nameproduct" placeholder="Name"> <br>
-            <input type="text" width="300" height="100" name="price" placeholder="Price"> <br>
-            <input type="text" width="300" height="100" name="description" placeholder="Description"> <br>
+            <input type="text" name="nameproduct" placeholder="nameproduct"> <br>
+            <input type="text" name="price" placeholder="Price"> <br>
+            <input type="text" name="description" placeholder="Description"> <br>
             <button type="submit" value="Add" name="submit">Add</button>
         </form>
         
-        <button><a href="index.php">Back</a></button>
+        <button><a href="/managing.php">Back</a></button>
     </div>
 </body>
 
