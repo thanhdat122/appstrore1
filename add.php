@@ -16,16 +16,16 @@
         require("connect.php");   
         if(isset($_POST["submit"]))
             {
-                $name = $_POST["proname"];
+                $nameproduct = $_POST["nameproduct"];
                 $price = $_POST["price"];
-                $descrip = $_POST["descrip"];
-                if ($name == ""||$price == ""|| $descrip == "") 
+                $description = $_POST["description"];
+                if ($nameproduct == ""||$price == ""|| $description == "") 
                     {
                         echo "Product information should not be blank!!";
                     }
                 else
                     {
-                        $sql = "select * from product where proname='$name'";
+                        $sql = "select * from product where proname='$nameproduct'";
                         $query = pg_query($conn, $sql);
                         if(pg_num_rows($query)>0)
                         {
@@ -33,7 +33,7 @@
                         }
                         else
                         {
-                            $sql = "INSERT INTO product(proname, price, descrip) VALUES ('$name','$price','$descrip')";
+                            $sql = "INSERT INTO product(nameproduct, price, description) VALUES ('$nameproduct','$price','$description')";
                             pg_query($conn,$sql);
                             echo  "Sign Up successful!!";
                         }

@@ -15,7 +15,7 @@
         <table>
             <tr>
                 <th class="tit">ID</th>
-                <th class="tit">Name</th>
+                <th class="tit">NameProduct</th>
                 <th class="tit">Price ($)</th>
                 <th class="tit">Description</th>
                 <th class="tit">Editting</th>
@@ -28,10 +28,10 @@
             foreach ($pdo->query($sql) as $row) {
             ?>
                 <tr>
-                    <td class="info"><?php echo $row['productid']?></td> 
-                    <td class="info"><?php echo $row['proname']?></td> 
+                    <td class="info"><?php echo $row['id']?></td> 
+                    <td class="info"><?php echo $row['namproduct']?></td> 
                     <td class="info"><?php echo $row['price']?></td> 
-                    <td class="info"><?php echo $row['descrip']?></td> 
+                    <td class="info"><?php echo $row['description']?></td> 
                     <td class="info"><a href="#">Delete</a><a href="#">Update</a></td>
                 </tr>
             <?php
